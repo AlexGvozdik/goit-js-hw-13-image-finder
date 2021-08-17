@@ -6,7 +6,7 @@ export default class ImagesApiService {
   }
 
   fetchImages() {
-    console.log(this);
+    // console.log(this);
     const url = `${this.requestUrl}/?image_type=photo&orientation=horizontal&q=${this.searchQuery}&page=${this.page}&per_page=12&key=21693687-d312e4baa20e789348b176d28`;
 
     return fetch(url)

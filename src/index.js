@@ -35,10 +35,10 @@ function onSearch(e) {
   loadMoreBtn.show();
   imagesApiService.resetPage();
   clearImagesContainer();
-  fetchImages();
+  fetchImages(e);
 }
 
-function fetchImages() {
+function fetchImages(e) {
   loadMoreBtn.disable();
   imagesApiService.fetchImages().then(images => {
     if (images.length === 0) {
@@ -47,8 +47,9 @@ function fetchImages() {
     }
     appendImagesMarkup(images);
     loadMoreBtn.enable();
-
-    windowScrollTo();
+    if (e.type !== 'submit') {
+      windowScrollTo();
+    }
   });
 }
 
